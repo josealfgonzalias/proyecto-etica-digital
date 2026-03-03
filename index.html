@@ -3,27 +3,182 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Proyecto Ética Digital</title>
+  <title>TikTok: Lo que aceptamos sin leer</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
   <header class="hero">
-    <h1>Lo que aceptamos sin leer</h1>
-    <p>Un portal interactivo sobre privacidad, términos de servicio y economía de la atención.</p>
-    <button id="acceptBtn">Acepto</button>
+    <div class="hero__content">
+      <p class="tag">Portal scrollytelling • Ética digital</p>
+      <h1>TikTok: lo que aceptamos sin leer</h1>
+      <p class="subtitle">
+        Auditoría de privacidad + conexión con <em>The Social Dilemma</em>.
+        Haz scroll: cada sección “enciende” un tipo de dato.
+      </p>
+
+      <div class="ctaRow">
+        <button id="acceptBtn">Acepto</button>
+        <button id="resetBtn" class="ghost">Reiniciar</button>
+      </div>
+
+      <p class="hint">Tip: primero dale <strong>Acepto</strong> y luego baja.</p>
+    </div>
   </header>
 
-  <main>
-    <section class="step" data-step="1">
-      <h2>1) El click inocente</h2>
-      <p>Haces scroll y verás qué datos se activan cuando aceptas.</p>
-    </section>
+  <div class="progressWrap">
+    <div class="progressBar" id="progressBar"></div>
+  </div>
 
+  <main class="layout">
     <aside class="panel" id="panel">
-      <h3>Datos activados</h3>
-      <ul id="dataList"></ul>
+      <h3>Tu rastro digital</h3>
+      <p class="panel__small">Estado: <span id="status">No aceptado</span></p>
+
+      <div class="panel__box">
+        <p class="panel__label">Datos activados</p>
+        <ul id="dataList"></ul>
+      </div>
+
+      <div class="panel__box">
+        <p class="panel__label">Concepto (The Social Dilemma)</p>
+        <p id="concept">—</p>
+      </div>
+
+      <div class="panel__box">
+        <p class="panel__label">Impacto</p>
+        <p id="impact">—</p>
+      </div>
+
+      <p class="panel__footer">
+        *Pega aquí tus cláusulas reales (citas cortas o nombre de sección).
+      </p>
     </aside>
+
+    <section class="story">
+      <!-- STEP 1 -->
+      <section class="step" data-key="click" data-concept="Fricción cero / Aceptación automática"
+        data-impact="Aceptas sin leer: se habilita la recolección y el uso de datos según la política.">
+        <h2>1) El click inocente</h2>
+        <p>
+          La mayoría solo pulsa “Aceptar”. En <em>The Social Dilemma</em> explican que el diseño reduce la fricción:
+          aceptar es fácil, entender es largo.
+        </p>
+        <div class="quote">
+          <p><strong>Cláusula TikTok (pegar aquí):</strong></p>
+          <p class="muted">[Pega 1–2 líneas o escribe “Sección: …”]</p>
+        </div>
+      </section>
+
+      <!-- STEP 2 -->
+      <section class="step" data-key="behavior" data-concept="Economía de la atención"
+        data-impact="Tu comportamiento alimenta el algoritmo: lo que ves, cuánto tiempo, qué repites, qué ignoras.">
+        <h2>2) Tu comportamiento es el insumo</h2>
+        <p>
+          El algoritmo compite por tu atención. Para eso necesita tus señales: tiempo de visualización, likes, comentarios,
+          búsquedas y repeticiones.
+        </p>
+        <div class="quote">
+          <p><strong>Evidencia (pegar):</strong></p>
+          <p class="muted">[Sección: Usage/Activity/Interactions…]</p>
+        </div>
+      </section>
+
+      <!-- STEP 3 -->
+      <section class="step" data-key="device" data-concept="Capitalismo de vigilancia"
+        data-impact="El dispositivo también “habla”: IP, modelo, sistema, IDs/cookies ayudan a medir y perfilar.">
+        <h2>3) Tu teléfono también da información</h2>
+        <p>
+          No solo importa lo que haces: también el dispositivo, red y ciertos identificadores ayudan a medición,
+          seguridad y publicidad.
+        </p>
+        <div class="quote">
+          <p><strong>Evidencia (pegar):</strong></p>
+          <p class="muted">[Sección: Device/Network/Cookies/Identifiers…]</p>
+        </div>
+      </section>
+
+      <!-- STEP 4 -->
+      <section class="step" data-key="location" data-concept="Segmentación"
+        data-impact="La ubicación permite recomendaciones y anuncios por contexto (ciudad, zona, movimientos).">
+        <h2>4) Ubicación: contexto + segmentación</h2>
+        <p>
+          La ubicación (aprox o precisa) puede usarse para contenido local, medición y segmentación publicitaria.
+        </p>
+        <div class="quote">
+          <p><strong>Evidencia (pegar):</strong></p>
+          <p class="muted">[Sección: Location information…]</p>
+        </div>
+      </section>
+
+      <!-- STEP 5 -->
+      <section class="step" data-key="inferred" data-concept="Perfilado algorítmico"
+        data-impact="No solo guardan datos: infieren intereses y predicen lo que te engancha (feed “Para ti”).">
+        <h2>5) Te perfilan aunque no lo digas</h2>
+        <p>
+          Con tus señales, el sistema infiere intereses y crea un “perfil” para ordenar tu feed.
+          Eso es vigilancia + predicción del comportamiento.
+        </p>
+        <div class="quote">
+          <p><strong>Evidencia (pegar):</strong></p>
+          <p class="muted">[Sección: Personalization/Recommendations/Interests…]</p>
+        </div>
+      </section>
+
+      <!-- STEP 6 -->
+      <section class="step" data-key="ads" data-concept="Monetización de la atención"
+        data-impact="Los datos se usan para medir anuncios, atribución y rendimiento (tú eres el producto).">
+        <h2>6) Publicidad y medición</h2>
+        <p>
+          El documental lo dice claro: si no pagas con dinero, pagas con atención y datos.
+          Aquí conectas “publicidad” + “medición” + “partners”.
+        </p>
+        <div class="quote">
+          <p><strong>Evidencia (pegar):</strong></p>
+          <p class="muted">[Sección: Advertising/Analytics/Partners…]</p>
+        </div>
+      </section>
+
+      <!-- STEP 7 -->
+      <section class="step" data-key="sharing" data-concept="Ecosistema de datos"
+        data-impact="Los datos circulan: proveedores, afiliadas, empresas de medición y solicitudes legales.">
+        <h2>7) ¿Con quién se comparten tus datos?</h2>
+        <p>
+          Una auditoría real muestra el mapa de “quién toca tus datos”: proveedores, afiliadas, partners,
+          y también cumplimiento legal.
+        </p>
+        <div class="quote">
+          <p><strong>Evidencia (pegar):</strong></p>
+          <p class="muted">[Sección: How we share / Service providers / Affiliates / Legal…]</p>
+        </div>
+      </section>
+
+      <!-- STEP 8 -->
+      <section class="step" data-key="rights" data-concept="Control vs realidad"
+        data-impact="Tus “derechos” existen, pero a veces hay retención, límites y cambios futuros de política.">
+        <h2>8) Tus derechos (y los límites)</h2>
+        <p>
+          Aquí explicas: descarga de datos, borrar cuenta, retención y cambios de política.
+          Cierre crítico: transparencia real vs consentimiento “rápido”.
+        </p>
+        <div class="quote">
+          <p><strong>Evidencia (pegar):</strong></p>
+          <p class="muted">[Sección: Your rights/Choices/Data retention/Changes…]</p>
+        </div>
+
+        <div class="final">
+          <h3>Pregunta final</h3>
+          <p>Si esto estuviera escrito así de claro… ¿igual aceptarías?</p>
+        </div>
+      </section>
+    </section>
   </main>
+
+  <footer class="foot">
+    <p>
+      Hecho con HTML/CSS/JS • Proyecto Ética Digital • Servicio auditado: <strong>TikTok</strong>.
+    </p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
